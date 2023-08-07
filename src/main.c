@@ -5,7 +5,12 @@
 #include <stdlib.h>
 
 int main(int argc, char **argv){
-  char* filename = "./test/programming_ground_up.pdf";
+  if(argc < 2){
+    fprintf(stdout, "USAGE: pdf2mobi title.pdf");
+    return 0;
+  }
+
+  char* filename = argv[1];
   pdfio_file_t *pdf = pdfioFileOpen(filename, NULL, NULL, NULL, NULL);
 
   if(pdf == NULL){
